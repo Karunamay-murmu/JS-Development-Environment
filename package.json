@@ -4,8 +4,8 @@
 	"description": "'Javascript Development Starter Kit'",
 	"main": "index.js",
 	"scripts": {
-		"prestart": "node buildScript/startMessage.js",
-		"start": "node buildScript/srcServer.js",
+		"prestart": "babel-node buildScript/startMessage.js",
+		"start": "babel-node buildScript/srcServer.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -18,9 +18,13 @@
 		"url": "https://github.com/Karunamay-murmu/JS-Development-Environment/issues"
 	},
 	"homepage": "https://github.com/Karunamay-murmu/JS-Development-Environment#readme",
-	"dependencies": {},
+	"dependencies": {
+		"@babel/polyfill": "^7.10.4"
+	},
 	"devDependencies": {
+		"@babel/cli": "^7.10.5",
 		"@babel/core": "^7.11.1",
+		"@babel/preset-env": "^7.11.0",
 		"babel-cli": "6.26.0",
 		"babel-core": "^6.26.3",
 		"babel-loader": "8.1.0",
