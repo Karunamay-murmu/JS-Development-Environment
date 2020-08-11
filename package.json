@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"prestart": "babel-node buildScript/startMessage.js",
-		"start": "npm-run-all --parallel open:src lint:watch",
+		"start": "npm-run-all --parallel open:src lint:watch test:watch",
 		"open:src": "babel-node buildScript/srcServer.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "mocha --reporter progress buildScript/testSetup.js \"src/**/*.test.js\"",
+		"test:watch": "npm run test -- --watch",
 		"lint": "esw webpack.config.* src buildScript --color",
 		"lint:watch": "npm run lint -- --watch"
 	},
