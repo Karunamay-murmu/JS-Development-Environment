@@ -5,8 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"prestart": "babel-node buildScript/startMessage.js",
-		"start": "babel-node buildScript/srcServer.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "npm-run-all --parallel open:src lint:watch",
+		"open:src": "babel-node buildScript/srcServer.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "esw webpack.config.* src buildScript --color",
+		"lint:watch": "npm run lint -- --watch"
 	},
 	"repository": {
 		"type": "git",
